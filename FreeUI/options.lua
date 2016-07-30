@@ -45,7 +45,6 @@ C["automation"] = {
 	["autoSetRole"] = true,			-- automatically set role and hide dialog where possible
 		["autoSetRole_useSpec"] = true,		-- attempt to set role based on your current spec
 		["autoSetRole_verbose"] = false,	-- tells you what happens when setting role
-	["questRewardHighlight"] = true, -- highlights the quest reward with highest vendor price
 }
 
 C["actionbars"] = {
@@ -93,6 +92,12 @@ C["tooltip"] = {
 	["guildrank"] = true,
 	["title"] = false,
 	["pvp"] = true,
+}
+
+C["quests"] = {
+	["questRewardHighlight"] = true,				-- highlights the quest reward with highest vendor price
+	["rememberObjectiveTrackerState"] = true,		-- saves objective tracker expanded/collapsed state per character
+		["alwaysCollapseObjectiveTracker"] = false,	-- always collapses objective tracker on login
 }
 
 C["unitframes"] = {
@@ -153,13 +158,11 @@ C["unitframes"] = {
 
 C["classmod"] = {
 	["deathknight"] = true, 	-- runes
-	["druidEclipse"] = true, 	-- eclipse bar
 	["druidMana"] = true, 		-- shapeshift mana bar
 	["mage"] = true, 			-- rune of power
 	["monk"] = true, 			-- chi, stagger bar
 	["paladinHP"] = true, 		-- holy power
 	["paladinRF"] = true, 		-- righteous fury
-	["priest"] = true,			-- shadow orbs
 	["warlock"] = true, 		-- spec bar
 }
 

@@ -57,9 +57,12 @@ local function GetColor(className, isLocal)
 end
 
 local changeBNetName = function(misc, id, moreMisc, fakeName, tag, colon)
-	local _, charName, _, _, _, _, _, englishClass = BNGetToonInfo(id)
-	if englishClass and englishClass ~= "" then
-		fakeName = "|cFF"..GetColor(englishClass, true)..fakeName.."|r"
+	local gameAccount = select(6, BNGetFriendInfoByID(id))
+	if gameAccount then
+		local _, charName, _, _, _, _, _, englishClass = BNGetGameAccountInfo(gameAccount)
+		if englishClass and englishClass ~= "" then
+			fakeName = "|cFF"..GetColor(englishClass, true)..fakeName.."|r"
+		end
 	end
 	return misc..id..moreMisc..fakeName..tag..(colon == ":" and ":" or colon)
 end
@@ -158,10 +161,9 @@ local function StyleWindow(f)
 
 	frame.editBox:SetAltArrowKeyMode(nil)
 
-	local x=({_G[f.."EditBox"]:GetRegions()})
-	x[9]:SetAlpha(0)
-	x[10]:SetAlpha(0)
-	x[11]:SetAlpha(0)
+	_G[f.."EditBoxFocusLeft"]:SetAlpha(0)
+	_G[f.."EditBoxFocusRight"]:SetAlpha(0)
+	_G[f.."EditBoxFocusMid"]:SetAlpha(0)
 
 	local ebg = CreateFrame("Frame", nil, frame.editBox)
 	ebg:SetBackdrop({
